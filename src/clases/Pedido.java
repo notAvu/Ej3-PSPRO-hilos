@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Pedido {
     private static final int MAX_PRODUCT_NUMBER=26;
-    private LinkedList<Producto> listadoProductos;//o arraylist?
+    private final LinkedList<Producto> listadoProductos;
     private final int numProductos;
 
     public Pedido() {
@@ -21,9 +21,5 @@ public class Pedido {
     }
     public LinkedList<Producto> getListadoProductos() {
         return listadoProductos;
-    }
-    public Producto getProducto(int position)
-    {
-        return listadoProductos.get(position);
     }
 }
