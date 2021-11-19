@@ -6,24 +6,21 @@ import java.util.Random;
 public class Pedido {
     private static final int MAX_PRODUCT_NUMBER=26;
     private LinkedList<Producto> listadoProductos;//o arraylist?
-    private int numProductos;
+    private final int numProductos;
 
     public Pedido() {
-        Random cantidad= new Random();
+        Random random= new Random();
         this.listadoProductos = new LinkedList<>();
-        this.numProductos= cantidad.nextInt(26);
+        this.numProductos=random.nextInt(MAX_PRODUCT_NUMBER);
         generarProductos();
     }
     private void generarProductos() {
-        for(int i=0; i<numProductos; i++) {
+        for(int i=0; i<this.numProductos; i++) {
             listadoProductos.add(new Producto());
         }
     }
     public LinkedList<Producto> getListadoProductos() {
         return listadoProductos;
-    }
-    public void setListadoProductos(LinkedList<Producto> listadoProductos) {
-        this.listadoProductos = listadoProductos;
     }
     public Producto getProducto(int position)
     {

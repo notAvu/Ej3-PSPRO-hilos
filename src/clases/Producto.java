@@ -3,15 +3,17 @@ package clases;
 import java.util.Random;
 
 public class Producto {
-    private final double MAX_HERRAMIENTAS_PRECIO=130;
-    private final double MAX_RECAMBIOS_PRECIO=28.90;
-    private final double MAX_lIMPIEZA_PRECIO=14.50;
-    private final double MIN_HERRAMIENTAS_PRECIO=4.5;
-    private final double MIN_RECAMBIOS_PRECIO=2;
-    private final double MIN_lIMPIEZA_PRECIO=0.45;
+    private static final double MAX_HERRAMIENTAS_PRECIO=130;
+    private static final double MAX_RECAMBIOS_PRECIO=28.90;
+    private static final double MAX_lIMPIEZA_PRECIO=14.50;
+    private static final double MIN_HERRAMIENTAS_PRECIO=4.5;
+    private static final double MIN_RECAMBIOS_PRECIO=2;
+    private static final double MIN_lIMPIEZA_PRECIO=0.45;
+    private static final int MIN_UDS=1;
+    private static final int MAX_UDS=50;
     private double precioUnitario;
     private int cantidad;
-    private char tipo;//h=herramienta, r=recmbio, p=producto de limpieza
+    private final char tipo;//h=herramienta, r=recmbio, p=producto de limpieza
 
     public Producto() {
         Random getCantidad= new Random();
@@ -23,26 +25,6 @@ public class Producto {
     public double getPrecioUnitario() {
         return precioUnitario;
     }
-
-//    public void setPrecioUnitarioO() {
-//        double maxPrecioTipo=0;
-//        double minPrecioTipo=0;
-//        switch(tipo) {
-//            case 'h'-> {
-//                maxPrecioTipo = MAX_HERRAMIENTAS_PRECIO;
-//                minPrecioTipo = MIN_HERRAMIENTAS_PRECIO;
-//            }
-//            case 'r'->{
-//                maxPrecioTipo = MAX_RECAMBIOS_PRECIO;
-//                minPrecioTipo = MIN_RECAMBIOS_PRECIO;
-//            }
-//            case 'p'-> {
-//                maxPrecioTipo = MAX_lIMPIEZA_PRECIO;
-//                minPrecioTipo = MIN_lIMPIEZA_PRECIO;
-//            }
-//        }
-//        this.precioUnitario = getPrecioRandom(maxPrecioTipo, minPrecioTipo);
-//    }
     public void setPrecioUnitario() {
         double precioUnitario=0;
         switch(tipo) {
@@ -71,15 +53,16 @@ public class Producto {
         return cantidad;
     }
 
+    public int getCantidadRandom() {
+        Random random= new Random();
+        return random.nextInt(MAX_UDS-MIN_UDS)+MAX_UDS;
+    }
+
     public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+        this.cantidad = getCantidadRandom();
     }
 
     public char getTipo() {
         return tipo;
-    }
-
-    public void setTipo(char tipo) {
-        this.tipo = tipo;
     }
 }
