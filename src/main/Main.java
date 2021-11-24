@@ -3,11 +3,10 @@ package main;
 import clases.Pedido;
 import hilos.DatosGeneral;
 import hilos.GestorPedidos;
-
 import java.util.LinkedList;
 
 public class Main {
-    public static final int NUM_PEDIDOS = 100000;
+    public static final int NUM_PEDIDOS = 100;
     public static final int NUM_HILOS=Runtime.getRuntime().availableProcessors();
 
     public static void main(String[] args) {

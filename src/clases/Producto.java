@@ -28,9 +28,9 @@ public class Producto {
     public void setPrecioUnitario() {
         double precioUnitario=0;
         switch(tipo) {
-            case 'h'-> precioUnitario = getPrecioRandom(MAX_HERRAMIENTAS_PRECIO, MIN_HERRAMIENTAS_PRECIO);
-            case 'r'-> precioUnitario = getPrecioRandom(MAX_RECAMBIOS_PRECIO, MIN_RECAMBIOS_PRECIO);
-            case 'p'-> precioUnitario = getPrecioRandom(MAX_lIMPIEZA_PRECIO, MIN_lIMPIEZA_PRECIO);
+            case 'h'-> precioUnitario = getPrecioRandom(MIN_HERRAMIENTAS_PRECIO,MAX_HERRAMIENTAS_PRECIO);
+            case 'r'-> precioUnitario = getPrecioRandom(MIN_RECAMBIOS_PRECIO,MAX_RECAMBIOS_PRECIO);
+            case 'p'-> precioUnitario = getPrecioRandom(MIN_lIMPIEZA_PRECIO,MAX_lIMPIEZA_PRECIO);
         }
         this.precioUnitario = precioUnitario;
     }
